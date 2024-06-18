@@ -1,17 +1,18 @@
-import { atom, useAtom, useSetAtom } from 'jotai';
+import { atom, useAtomValue, useSetAtom } from 'jotai';
 import React from 'react'
 
-const counterAtom = atom(0);
+const countAtom = atom(0)
 
-function Counter() {
-  const [count, setCount] = useAtom(counterAtom);
+const Counter = () => {
+  const setCount = useSetAtom(countAtom)
+  const count = useAtomValue(countAtom)
 
   return (
-    <div>
-      <p>Count: {count}</p>
-      <button onClick={() => setCount(count + 1)}>Increment</button>
-    </div>
-  );
+    <>
+      <div>count: {count}</div>
+      <button onClick={() => setCount(count + 1)}>+1</button>
+    </>
+  )
 }
 
 export default Counter
