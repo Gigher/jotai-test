@@ -1,24 +1,20 @@
 import logo from './logo.svg';
 import './App.css';
+import { Provider, atom, useAtomValue } from 'jotai';
+import Counter from './components/Counter';
+import { CounterDisplay } from './components/CounterDisplay';
+
+
+const counterAtom = atom(0);
 
 function App() {
+
+  const state = useAtomValue(counterAtom);
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className="App">
+        <Counter />
+      </div>
   );
 }
 
